@@ -4,16 +4,15 @@ using UnityEngine.AI;
 public class ChaseBehavior : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public Transform player;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.Find("CompleteTank").transform;
     }
 
-    public void ChasePlayer()
+    public void ChasePlayer(Transform player)
     {
-        agent.SetDestination(player.position);
+        if (agent != null && player != null)
+            agent.SetDestination(player.position);
     }
 }
